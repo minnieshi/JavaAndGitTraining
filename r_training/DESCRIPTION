@@ -1,1 +1,7 @@
-.
+Package: rooster.training
+Title: Training Project
+Version: 1.0
+Authors@R: person("Your", "Name", email = "your.email@example.com", role = c("aut", "cre"))
+Description: A sample R project for training purposes. common for package R projects. can be deleted if it is non-package R.
+Depends: R (>= 3.5)
+Encoding: UTF-8

@@ -1,7 +1,9 @@
+source("renv/activate.R")
 # Load renv environment (if renv is used)
-if (requireNamespace("renv", quietly = TRUE)) {
-  renv::activate()
-}
+# commented out as the renv/activate.R does the job now
+# if (requireNamespace("renv", quietly = TRUE)) {
+#   renv::activate()
+# }
 
 # Set global options
 options(stringsAsFactors = FALSE)
