@@ -26,13 +26,35 @@ In R, **matrices** and **data frames** are both used to organize data in a tabul
 
 You can create a matrix using the `matrix()` function or by combining vectors.
 
-`# Numeric matrix mat <- matrix(1:9, nrow = 3, ncol = 3) print(mat)  # Output: #      [,1] [,2] [,3] # [1,]    1    4    7 # [2,]    2    5    8 # [3,]    3    6    9`
+```
+# Numeric matrix
+mat <- matrix(1:9, nrow = 3, ncol = 3)
+print(mat)
+# Output:
+#      [,1] [,2] [,3]
+# [1,]    1    4    7
+# [2,]    2    5    8
+# [3,]    3    6    9
+```
 
 #### **Data Frame:**
 
 You can create a data frame using the `data.frame()` function.
 
-`# Data frame with mixed types df <- data.frame(Name = c("Alice", "Bob", "Charlie"),                  Age = c(25, 30, 35),                  Score = c(90.5, 85.3, 88.8)) print(df)  # Output: #      Name Age Score # 1   Alice  25  90.5 # 2     Bob  30  85.3 # 3 Charlie  35  88.8`
+```
+# Data frame with mixed types
+df <- data.frame(Name = c("Alice", "Bob", "Charlie"),
+                 Age = c(25, 30, 35),
+                 Score = c(90.5, 85.3, 88.8))
+print(df)
+
+# Output:
+#      Name Age Score
+# 1   Alice  25  90.5
+# 2     Bob  30  85.3
+# 3 Charlie  35  88.8
+
+```
 
 ---
 
@@ -40,11 +62,29 @@ You can create a data frame using the `data.frame()` function.
 
 - **Matrix**: Homogeneous; every element must have the same type.
 
-  `mat <- matrix(c(1, 2, 3, "4"), nrow = 2)  # Coerces all elements to characters print(mat)  # Output: #      [,1] [,2] # [1,] "1"  "3"  # [2,] "2"  "4"`
+```
+mat <- matrix(c(1, 2, 3, "4"), nrow = 2)  # Coerces all elements to characters
+print(mat)
+
+# Output:
+#      [,1] [,2]
+# [1,] "1"  "3"
+# [2,] "2"  "4"
+```
 
 - **Data Frame**: Heterogeneous; columns can have different types.
 
-  `df <- data.frame(A = c(1, 2, 3), B = c("x", "y", "z")) print(df)  # Output: #   A B # 1 1 x # 2 2 y # 3 3 z`
+```r
+df <- data.frame(A = c(1, 2, 3), B = c("x", "y", "z"))
+print(df)
+
+# Output:
+#   A B
+# 1 1 x
+# 2 2 y
+# 3 3 z
+
+```
 
 
 ---
@@ -55,13 +95,20 @@ You can create a data frame using the `data.frame()` function.
 
 Matrices are often used for numerical computations and allow operations like matrix multiplication, addition, or element-wise operations.
 
-`mat <- matrix(1:4, nrow = 2) mat * 2  # Element-wise multiplication`
+```r
+mat <- matrix(1:4, nrow = 2) 
+mat * 2  # Element-wise multiplication
+```
 
 #### **Data Frame**:
 
 Data frames are used for data analysis and manipulation (e.g., subsetting, filtering, summarizing).
 
-`df <- data.frame(Name = c("Alice", "Bob"), Age = c(25, 30)) df[df$Age > 25, ]  # Filter rows where Age > 25`
+```r
+df <- data.frame(Name = c("Alice", "Bob"), Age = c(25, 30))
+df[df$Age > 25, ]  # Filter rows where Age > 25
+
+```
 
 ---
 
@@ -71,13 +118,22 @@ Data frames are used for data analysis and manipulation (e.g., subsetting, filte
 
 Matrix indexing uses **row** and **column** positions.
 
-`mat <- matrix(1:9, nrow = 3) mat[2, 3]  # Access element in 2nd row, 3rd column`
+```r
+mat <- matrix(1:9, nrow = 3)
+mat[2, 3]  # Access element in 2nd row, 3rd column
+
+```
 
 #### **Data Frame**:
 
 Data frames support both **position-based** and **name-based** indexing.
 
-`df <- data.frame(A = c(1, 2, 3), B = c("x", "y", "z")) df[1, "B"]  # Access first row, column "B" df$B  # Access column "B" directly`
+```r
+df <- data.frame(A = c(1, 2, 3), B = c("x", "y", "z"))
+df[1, "B"]  # Access first row, column "B"
+df$B  # Access column "B" directly
+
+```
 
 ---
 
@@ -87,12 +143,19 @@ You can convert between matrices and data frames when needed:
 
 - **Matrix to Data Frame**:
 
-  `mat <- matrix(1:4, nrow = 2) df <- as.data.frame(mat)`
+```r
+mat <- matrix(1:4, nrow = 2)
+df <- as.data.frame(mat)
+
+```
 
 - **Data Frame to Matrix**:
 
-  `df <- data.frame(A = c(1, 2), B = c(3, 4)) mat <- as.matrix(df)`
+```r
+df <- data.frame(A = c(1, 2), B = c(3, 4))
+mat <- as.matrix(df)
 
+```
 
 ---
 
@@ -131,7 +194,12 @@ If you try to mix different types, R will automatically **coerce** the elements 
 
 #### Example:
 
-`vec <- c(1, "apple", TRUE) print(vec) # Output: [1] "1"     "apple" "TRUE"   (all elements are coerced to character)`
+```r
+vec <- c(1, "apple", TRUE)
+print(vec)
+# Output: [1] "1"     "apple" "TRUE"   (all elements are coerced to character)
+
+```
 
 ---
 
@@ -144,7 +212,20 @@ Yes, you can! In fact, a vector can be considered as a **row** or **column** of 
 
 #### Example of converting a vector to a matrix:
 
-`# Create a vector vec <- c(1, 2, 3, 4, 5, 6)  # Convert the vector into a matrix with 2 rows and 3 columns mat <- matrix(vec, nrow = 2, ncol = 3) print(mat)  # Output: #      [,1] [,2] [,3] # [1,]    1    3    5 # [2,]    2    4    6`
+```r
+# Create a vector
+vec <- c(1, 2, 3, 4, 5, 6)
+
+# Convert the vector into a matrix with 2 rows and 3 columns
+mat <- matrix(vec, nrow = 2, ncol = 3)
+print(mat)
+
+# Output:
+#      [,1] [,2] [,3]
+# [1,]    1    3    5
+# [2,]    2    4    6
+
+```
 
 Here, the vector elements are arranged by **columns** (by default), but you can also arrange them by **rows** using the argument `byrow = TRUE`.
 
@@ -166,8 +247,12 @@ Here, the vector elements are arranged by **columns** (by default), but you can 
 - A **vector** can be thought of as a **special case of a matrix** with one dimension.
 - If you create a matrix with **one row** or **one column**, it’s essentially a vector:
 
-  `mat <- matrix(c(1, 2, 3), nrow = 1) print(mat) # Output: [1] 1 2 3 (this behaves like a row vector)`
+```r
+mat <- matrix(c(1, 2, 3), nrow = 1)
+print(mat)
+# Output: [1] 1 2 3 (this behaves like a row vector)
 
+```
 
 ---
 

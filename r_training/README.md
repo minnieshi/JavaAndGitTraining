@@ -89,10 +89,17 @@ R is strongly but dynamically typed, functional and interpreted (therefore not c
 #### **Vectors**:
 
 *   Create with `c()`:
-
     `vec <- c(1, 2, 3)`
-
+* what does c stand for?
 the function c() stands for "combine" or "concatenate". It is used to create vectors by combining individual elements into a single vector.
+* element types
+```r
+vec <- c(1, "apple", TRUE)
+print(vec)
+# Output: [1] "1"     "apple" "TRUE"
+
+```
+Since R requires all elements of a vector to be of the same type, it coerces the elements to a common type (in this case, character).
 
 #### **Subsetting**:
 
