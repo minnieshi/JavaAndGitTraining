@@ -148,3 +148,63 @@ Since R requires all elements of a vector to be of the same type, it coerces the
 
     `df <- read.csv("data.csv")
     write.csv(df, "output.csv")`
+
+#### ** statement** (space, new line)
+##### **What is a Statement**
+In R, a **statement** is a complete unit of code that performs an action or produces a result. A statement can be:
+
+- **An assignment**: Assigning a value to a variable.
+
+  `x <- 10`
+
+- **A function call**: Calling a function with arguments.
+
+  `print("Hello, world!")`
+
+- **An expression**: Evaluating an expression.
+
+  `2 + 2`
+
+R recognizes the end of a statement when:
+
+1. The line ends **without expecting more input** (e.g., after a complete expression).
+2. A **semicolon (`;`)** explicitly separates two statements on the same line.
+
+##### **When do newlines matter?**
+
+Newlines matter only when they interrupt a statement that isn’t complete. If R expects more input (e.g., an open parenthesis, bracket, or incomplete expression), it will continue reading the next line.
+
+###### Example 1: Newlines within a statement (allowed)
+
+
+`mat <- matrix(   c(1, 2, 3),   nrow = 1 ) print(mat)`
+
+R understands that the statement isn’t complete until it encounters the closing parenthesis, so splitting it across multiple lines is fine.
+
+###### Example 2: Breaking a statement incorrectly (error)
+
+
+`x <-  10`
+
+This produces an error because R expects the assignment to be completed on the same line as `x <-`.
+
+##### In other words
+A **newline (line break)** in R:
+
+1. **Creates a new statement** when the previous statement is complete.
+2. **Is ignored (treated as if it didn’t exist)** when the previous statement is incomplete, meaning R expects more input
+
+**Key Takeaway**
+
+- **If a statement is complete before a newline**, R starts a new statement on the next line → **newline matters**.
+- **If a statement is incomplete before a newline**, R ignores the newline and continues reading → **newline does not matter**.
+
+**Newlines in R can**:
+- End a complete statement, in which case they matter because they indicate that a new statement begins.
+- Be ignored if the statement is incomplete, in which case they don’t matter because R continues reading.
+
+##### Summary:
+* you can write **multiple statements on a single line**, but you need to separate them with a **semicolon (`;`)**.
+
+* Spaces and new lines generally don’t affect R syntax.
+* You can split a single statement across multiple lines, and R will handle it correctly as long as the syntax is valid. (this is a tricky thing)
