@@ -1,0 +1,5 @@
+- This file provides documentation about the project, including:
+    - Project objectives
+    - Instructions for running the analysis
+    - Dependencies and how to install them
+    - Any special notes about the data or analysis.

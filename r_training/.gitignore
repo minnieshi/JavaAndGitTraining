@@ -1,0 +1,39 @@
+# RStudio project files
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+
+# renv directories
+renv/library/
+renv/staging/
+
+# Packrat (if used)
+packrat/lib/
+packrat/lib*/
+packrat/src/
+
+# Output files
+output/
+*.html
+*.pdf
+*.docx
+*.xlsx
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+*.swp
+*.csv~
+*.sav
+*.rds
+
+# Compiled shared libraries (if using Rcpp)
+*.o
+*.so
+*.dll
+
+# Operating system files
+.DS_Store
+Thumbs.db
