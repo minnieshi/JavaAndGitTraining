@@ -92,6 +92,7 @@ R is strongly but dynamically typed, functional and interpreted (therefore not c
 
     `vec <- c(1, 2, 3)`
 
+the function c() stands for "combine" or "concatenate". It is used to create vectors by combining individual elements into a single vector.
 
 #### **Subsetting**:
 
