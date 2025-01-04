@@ -1,3 +1,32 @@
+# Language
+
+## typing
+### Static vs dynamic
+The distinction between static typing and dynamic typing in programming languages primarily revolves around how and when type-checking occurs in a program
+### strong vs weak
+The distinction between strong typing and weak typing relates to how strictly a programming language enforces type rules, especially when it comes to implicit type conversions (often called "type coercion").
+### matrix
+a matrix categorizing programming languages based on their **type strength** (strong vs. weak) and **type checking** (dynamic vs. static):
+
+| **Language** | **Strong & Static** | **Strong & Dynamic** | **Weak & Static** | **Weak & Dynamic** |
+| --- | --- | --- | --- | --- |
+| **C++** | ✅ |  |  |  |
+| **Java** | ✅ |  |  |  |
+| **Rust** | ✅ |  |  |  |
+| **Scala** | ✅ |  |  |  |
+| **Go** | ✅ |  |  |  |
+| **Python** |  | ✅ |  |  |
+| **Ruby** |  | ✅ |  |  |
+| **JavaScript** |  |  |  | ✅ |
+| **PHP** |  |  |  | ✅ |
+| **C** |  |  | ✅ |  |
+| **Perl** |  |  |  | ✅ |
+| **TypeScript** | ✅ (when fully typed) | ✅ (when partially typed) |  |  |
+
+* * *
+
+# Structure
+One Git Repo for Multiple Independent Projects:
 While there are clear benefits, it's not always the right approach. Here are some considerations:
 
 #### **1\. Independence and Scaling**
