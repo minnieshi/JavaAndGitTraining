@@ -420,13 +420,26 @@ if (requireNamespace("renv", quietly = TRUE)) {
 # Set global options
 options(stringsAsFactors = FALSE)
 options(repos = c(CRAN = "https://cloud.r-project.org"))
+EOL
 
-# Automatically load common libraries (customize as needed)
-# library(dplyr)
-# library(ggplot2)
+# Add a basic .Rproj file content
+cat <<EOL > $PROJECT_NAME/$PROJECT_NAME.Rproj
+Version: 1.0
+
+RestoreWorkspace: Default
+SaveWorkspace: Default
+AlwaysSaveHistory: Default
+
+EnableCodeIndexing: Yes
+UseSpacesForTab: Yes
+NumSpacesForTab: 2
+Encoding: UTF-8
+
+RnwWeave: knitr
+LaTeX: pdfLaTeX
 EOL
 
 # Print success message
-echo "R project structure with .Rprofile created in '$PROJECT_NAME'!"
+echo "R project structure with .Rproj file created in '$PROJECT_NAME'!"
 
 ```
