@@ -31,7 +31,21 @@ For projects with multiple dependencies, it's a good practice to document and ma
     - Tracks and manages package dependencies for reproducibility.
     - Example Workflow:
 
-      `# Initialize renv in a project install.packages("renv") renv::init()  # Install packages within the project install.packages("dplyr")  # Snapshot dependencies to lock file renv::snapshot()  # Restore dependencies on another machine renv::restore()`
+      ```r
+      # Initialize renv in a project
+      install.packages("renv")
+      renv::init()
+      
+      # Install packages within the project
+      install.packages("dplyr")
+      
+      # Snapshot dependencies to lock file
+      renv::snapshot()
+      
+      # Restore dependencies on another machine
+      renv::restore()
+      
+      ```
 
 2. **`packrat` (Older Alternative to renv)**:
 
