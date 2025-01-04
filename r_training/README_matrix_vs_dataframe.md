@@ -150,3 +150,81 @@ You can convert between matrices and data frames when needed:
 
 - Use **matrix** when you need consistent data types and focus on numerical operations.
 - Use **data frame** when working with datasets that have mixed data types and require flexibility for analysis and manipulation.
+
+# vector vs matrix
+### **1\. Do vector elements have the same type in R?**
+
+Yes, in R, all elements of a **vector** must have the **same type**. R vectors are **homogeneous** data structures, meaning that they can only store elements of one type, such as:
+
+- **Numeric** (`numeric`, `integer`, `double`)
+- **Character** (strings)
+- **Logical** (`TRUE` or `FALSE`)
+- **Complex** (complex numbers)
+
+If you try to mix different types, R will automatically **coerce** the elements to a common type, following a specific hierarchy:
+
+**Type Coercion Hierarchy**:
+
+1. **Logical → Numeric → Character**
+  - Logical values (`TRUE`, `FALSE`) are coerced to numeric (`1`, `0`).
+  - Numeric values are coerced to character if mixed with characters.
+
+#### Example:
+
+R
+
+Copy code
+
+`vec <- c(1, "apple", TRUE) print(vec) # Output: [1] "1"     "apple" "TRUE"   (all elements are coerced to character)`
+
+---
+
+### **2\. Can I think of a vector like a row or a column of a matrix?**
+
+Yes, you can! In fact, a vector can be considered as a **row** or **column** of a matrix because a matrix in R is essentially a **2-dimensional vector**.
+
+- A **matrix** in R is created by combining vectors and requires all elements to be of the same type (just like a vector).
+- When you create a matrix, you’re essentially stacking vectors either by rows or columns.
+
+#### Example of converting a vector to a matrix:
+
+R
+
+Copy code
+
+`# Create a vector vec <- c(1, 2, 3, 4, 5, 6)  # Convert the vector into a matrix with 2 rows and 3 columns mat <- matrix(vec, nrow = 2, ncol = 3) print(mat)  # Output: #      [,1] [,2] [,3] # [1,]    1    3    5 # [2,]    2    4    6`
+
+Here, the vector elements are arranged by **columns** (by default), but you can also arrange them by **rows** using the argument `byrow = TRUE`.
+
+---
+
+### **3\. Differences between a Vector and a Matrix**
+
+| **Aspect** | **Vector** | **Matrix** |
+| --- | --- | --- |
+| **Dimensions** | 1-dimensional (only length). | 2-dimensional (rows and columns). |
+| **Homogeneity** | All elements must be of the same type. | All elements must be of the same type. |
+| **Indexing** | Single index (`vec[3]` for the 3rd element). | Double index (`mat[2, 3]` for row 2, column 3). |
+| **Use Case** | Represent a single row or column of data. | Represent a grid or table of data. |
+
+---
+
+### **4\. How a Vector Relates to a Matrix**
+
+- A **vector** can be thought of as a **special case of a matrix** with one dimension.
+- If you create a matrix with **one row** or **one column**, it’s essentially a vector:
+
+  R
+
+  Copy code
+
+  `mat <- matrix(c(1, 2, 3), nrow = 1) print(mat) # Output: [1] 1 2 3 (this behaves like a row vector)`
+
+
+---
+
+### **Summary**
+
+- Yes, vector elements in R must have the **same type**.
+- You can think of a vector as a **row** or **column** of a matrix.
+- A matrix is essentially a **2D extension of a vector**, where all elements must also have the same type.
