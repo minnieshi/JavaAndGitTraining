@@ -9,7 +9,10 @@ source("renv/activate.R")
 options(stringsAsFactors = FALSE)
 options(repos = c(CRAN = "https://cloud.r-project.org"))
 
-# Automatically load common libraries (customize as needed) or not use this and load packages in scripts while needed
+# Disable automatic saving of the workspace image
+# options(save.image = FALSE)
+# options(save.workspace = "no")
+# unlink(".RData")
 #   ## if the `dplyr` package has not yet been installed (because you haven’t
 #   run renv::restore() or manually installed it),
 #   you will get an error when opening the R project.
