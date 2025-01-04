@@ -140,11 +140,9 @@ library(dplyr)                     # Load frequently used package
 2. **Initialize the R project using RStudio** (optional but recommended).
 3. **Set up `renv` for dependency management**:
 
-   R
-
-   Copy code
-
-   `renv::init()`
+```r
+renv::init()
+```
 
 4. **Write modular R scripts in the `R/` folder**.
 5. **Store raw data in `data/raw/` and processed data in `data/processed/`**.
@@ -220,7 +218,6 @@ R
 > renv::init()               # Initialize renv in the project
 > install.packages("dplyr")  # Install a package
 > renv::snapshot()           # Save package versions to renv.lock
-
 ```
 
 To recreate the environment on another machine:
@@ -413,7 +410,23 @@ output/
 Thumbs.db
 EOL
 
+# Add a basic .Rprofile content
+cat <<EOL > $PROJECT_NAME/.Rprofile
+# Load renv environment (if renv is used)
+if (requireNamespace("renv", quietly = TRUE)) {
+  renv::activate()
+}
+
+# Set global options
+options(stringsAsFactors = FALSE)
+options(repos = c(CRAN = "https://cloud.r-project.org"))
+
+# Automatically load common libraries (customize as needed)
+# library(dplyr)
+# library(ggplot2)
+EOL
+
 # Print success message
-echo "R project structure created in '$PROJECT_NAME'!"
+echo "R project structure with .Rprofile created in '$PROJECT_NAME'!"
 
 ```
