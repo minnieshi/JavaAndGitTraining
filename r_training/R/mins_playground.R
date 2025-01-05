@@ -33,7 +33,7 @@ plot(1:10, main = "Simple Plot", xlab = "X-axis", ylab = "Y-axis")
 dev.off()
 # below works
 getwd()
-setwd("./r_training")
+# setwd("./r_training")
 # Export to PNG
 png("plot_output.png", width = 800, height = 600)
 plot(1:10, main = "Simple Plot", xlab = "X-axis", ylab = "Y-axis")
@@ -44,4 +44,5 @@ inclusiveRange <- 1:5
 inclusiveRange
 lapply(1:5, function(x) x^2)
 # Output: list(1, 4, 9, 16, 25)
+
 help(lapply)

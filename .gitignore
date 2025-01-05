@@ -63,3 +63,4 @@ project/metals.sbt
 
 .vscode
 /scratch.sc
+.Rproj.user

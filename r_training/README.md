@@ -21,5 +21,11 @@ Later you can always open R project by RStudio or IntelliJ after this initial se
 If new to R dependency management, read this [dependency management summary including often used command](./README_dependency_management.md)
 and this: 
 [renv](./README_renv.md)
+
 ## How to run the analysis
 todo
+
+## Other references
+- **RStudio Documentation**: docs.posit.co
+- **R for Data Science**: r4ds.had.co.nz
+- **RStudio Cheatsheets**: posit.co/resources/cheatsheets/
