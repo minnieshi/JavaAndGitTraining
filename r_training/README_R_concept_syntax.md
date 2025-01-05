@@ -526,3 +526,101 @@ If you want an interactive browsing experience within R:
 - Use `help.start()` for a built-in HTML browser.
 - Use RStudio’s "Help" pane to browse packages interactively.
 - Visit external documentation sites like **RDocumentation** or **pkgdown** websites for specific packages.
+
+---
+
+## R `import`/`use` a package
+In **R**, the concept of **"importing"** packages or modules is primarily done using the `library()` or `require()` functions. However, unlike languages like Python (which has an explicit `import` keyword), R uses a combination of:
+
+1. **`library()` or `require()`**: To load entire packages.
+2. **Selective imports**: Through the **NAMESPACE** mechanism (used in packages).
+
+---
+
+### **1\. Using `library()` or `require()`**
+
+- In most R scripts, you load an entire package by calling:
+
+```r
+library(ggplot2)
+```
+
+- This makes all exported functions from the package available in your current R session.
+
+- For example, after running `library(ggplot2)`, you can directly call functions like `ggplot()` without prefixing them with `ggplot2::`.
+
+
+---
+
+### **2\. Selective Imports Using `::` or `:::`**
+
+R allows you to **selectively import functions** from a package without loading the entire package using the **`::`** or **`:::`** operators.
+
+- **`package::function`**: Accesses exported functions from the package.
+
+```r
+ggplot2::ggplot(data, aes(x, y))  # Use ggplot() without loading the entire package
+
+```
+
+- **`package:::function`**: Accesses non-exported (internal) functions. This is generally discouraged unless you have a specific reason.
+
+```r
+ggplot2:::print.ggplot  # Access an internal function
+```
+
+This approach is useful when:
+
+- You only need one or two functions from a package.
+- You want to avoid polluting your namespace with all the functions from a package.
+
+---
+
+### **3\. Importing in R Packages**
+
+When developing an **R package**, you can control which functions from other packages are made available using the **NAMESPACE** file or the `Imports` field in the **`DESCRIPTION`** file.
+
+#### **NAMESPACE File Directives**
+
+- `import(package)`: Imports all exported functions from a package.
+
+```text
+import(ggplot2)
+```
+
+- `importFrom(package, function1, function2, ...)`: Imports specific functions from a package.
+
+```text
+importFrom(ggplot2, ggplot, aes)
+```
+
+This ensures that only the specified functions are imported, keeping the package's namespace clean.
+
+#### **`DESCRIPTION` File**
+
+In the `DESCRIPTION` file of an R package, you list dependencies under the `Imports` or `Depends` fields:
+
+```text
+Imports: ggplot2, dplyr
+```
+
+This tells R that your package depends on these packages but doesn’t attach them automatically when your package is loaded (unlike `Depends`).
+
+---
+
+### **4\. How `library()` Differs from Python’s `import`**
+
+| **Aspect** | **R (`library()`)** | **Python (`import`)** |
+| --- | --- | --- |
+| **Imports entire package** | Yes, `library()` loads the entire package. | No, you can selectively import modules or functions. |
+| **Selective import** | Yes, using `::` or `importFrom` in NAMESPACE. | Yes, via `from module import function`. |
+| **Namespace pollution** | All exported functions become available unless `::` is used. | Only explicitly imported names are available. |
+| **Internal functions** | Accessible via `:::` (non-exported functions). | Can be accessed by prefixing with `_`, but discouraged. |
+
+---
+
+### **Summary**
+
+- R doesn’t have an explicit `import` keyword like Python, but you can load entire packages using `library()` or `require()`.
+- For selective imports, you can use the `::` operator to access specific functions without loading the whole package.
+- In R package development, the `Imports` field in the `DESCRIPTION` file and the `importFrom` directive in the NAMESPACE file provide finer control over imports.
